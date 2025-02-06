@@ -12,11 +12,14 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "https://japancard.vercel.app",
-      "https://japancard-git-main-bimapopo81.vercel.app",
+      "https://japancard-frontend.vercel.app",
+      "https://japancard-frontend-git-main-bimapopo81.vercel.app",
+      "https://japancard-frontend-bimapopo81.vercel.app",
       "http://localhost:5173",
     ],
     credentials: true,
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
