@@ -11,12 +11,19 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin:
-      process.env.NODE_ENV === "production"
-        ? ["https://japancard.vercel.app"]
-        : ["http://localhost:5173"],
+    origin: [
+      "https://japancard.vercel.app",
+      "https://japancard-git-main-bimapopo81.vercel.app",
+      "http://localhost:5173",
+    ],
+    credentials: true,
   })
 );
+
+// Add health check route
+app.get("/", (req, res) => {
+  res.json({ message: "Japan Card API is running" });
+});
 app.use(express.json());
 
 // MongoDB Connection
